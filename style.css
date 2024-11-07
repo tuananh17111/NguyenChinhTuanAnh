@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    color: blue;
+    background-color: gray;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    background-color: #f2f2f2;
+    padding: 5px 0;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 5px 10px;
+    color: black;
+}
+
+.image-slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.image-slider img {
+    min-width: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.feedback {
+    text-align: center;
+    margin: 20px;
+}
+
+.feedback form {
+    display: inline-block;
+}
+
+.feedback input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 200px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 300px;  /* Đặt chiều cao của vùng chứa slider */
+    overflow: hidden;  /* Ẩn phần ảnh vượt ra ngoài */
+}
+
+.image-slider img {
+    position: absolute;
+    width: 100%;  /* Đảm bảo ảnh chiếm đầy đủ chiều rộng vùng chứa */
+    height: 100%;
+    object-fit: cover;  /* Đảm bảo ảnh không bị biến dạng */
+    animation: slideRightToLeft 15s infinite;  /* Thời gian di chuyển là 15s, và lặp lại vô hạn */
+}
+
+/* Animation slide ảnh */
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(100%);  /* Bắt đầu từ ngoài bên phải */
+    }
+    33% {
+        transform: translateX(0);  /* Ảnh thứ nhất hiển thị ở vị trí bình thường */
+    }
+    66% {
+        transform: translateX(-100%);  /* Di chuyển ảnh sang bên trái */
+    }
+    100% {
+        transform: translateX(100%);  /* Ảnh tiếp theo bắt đầu từ bên phải */
+    }
+}
+
+/* Thêm delay cho từng ảnh để chúng di chuyển theo thứ tự */
+.image-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+.image-slider img:nth-child(2) {
+    animation-delay: 5s;  /* Tạo độ trễ cho ảnh thứ hai */
+}
+.image-slider img:nth-child(3) {
+    animation-delay: 10s;  /* Tạo độ trễ cho ảnh thứ ba */
+}
+
+
